@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  rstudio:
+    image: davidmacer/rstudio
+    container_name: rstudio-zumpango
+    restart: always
+    volumes:
+      - type: volume
+        source: rstudio
+        target: /app
+      - type: bind
+        source: $PWD
+        target: /home/rstudio
+    networks: 
+      - default
+    environment:
+      - PASSWORD=rstudio
+    ports:
+      - "8787:8787"
+
+  app:
+    image: davidmacer/shiny-geospatial
+    container_name: cont-zumpango
+    restart: always
+    volumes: 
+      - $PWD:/app
+    ports: 
+      - "8000:4040"
+      
+volumes:
+  app:
+  rstudio:
