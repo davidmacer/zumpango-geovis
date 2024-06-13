@@ -20,7 +20,9 @@ services:
       - "8787:8787"
 
   app:
-    image: davidmacer/shiny-geospatial
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: cont-zumpango
     restart: always
     volumes: 
