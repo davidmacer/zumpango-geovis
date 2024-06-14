@@ -27,12 +27,12 @@ function(input, output, session) {
   output$mymap <- renderLeaflet({
     
     leaflet()  |>
-      setView(-99.09917, 19.79694, 11) |>
+      setView(-99.15, 19.73, 11) |>
       addProviderTiles("CartoDB.VoyagerLabelsUnder",
                        options = providerTileOptions(noWrap = TRUE)) |>
       addPolygons(data = zumpango_locs,
                   color = "#b091d4",
-                  weight = 4)
+                  weight = 2)
       # addPolygons(data = zumpango_colonias,
       #             fill = "green",
       #             weight = 4)
